@@ -58,8 +58,14 @@ public class AdminController {
 		
 	}
 	@GetMapping("/students/{name}")
-	public ResponseEntity<List<Student>> allStudentByName(@PathVariable("name") String sname) throws StudentException{
-		List<Student> list=adminService.findByName(sname);
+	public ResponseEntity<List<Student>> allStudentByName(@PathVariable("name") String sname) {
+		List<Student> list=null;
+		try {
+			list = adminService.findByName(sname);
+		} catch (StudentException e) {
+			
+			e.printStackTrace();
+		}
 		return new ResponseEntity<List<Student>>(list,HttpStatus.ACCEPTED);
 		
 

@@ -1,11 +1,10 @@
 package com.StudentManagmentSystem.ModelClasses;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 
-@Entity
+
+@javax.persistence.Entity
 public class Address {
-	@Id
+	@javax.persistence.Id
 	private Integer id;
 	private String area;
 	private String state;

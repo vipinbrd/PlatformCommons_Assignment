@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.StudentManagmentSystem.ModelClasses.Course;
 @Repository
 public interface CourseRepo  extends JpaRepository<Course, Integer>{
+	public List<Course> findAllByCourseId(Integer id);
 
 
 

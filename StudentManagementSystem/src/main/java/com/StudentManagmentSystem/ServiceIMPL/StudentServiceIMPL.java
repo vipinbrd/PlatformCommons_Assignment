@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.StudentManagmentSystem.DTO.StudentCourseDto;
 import com.StudentManagmentSystem.DTO.StudentDto;
@@ -14,7 +15,7 @@ import com.StudentManagmentSystem.ModelClasses.Student;
 import com.StudentManagmentSystem.Repository.CourseRepo;
 import com.StudentManagmentSystem.Repository.StudentRepo;
 import com.StudentManagmentSystem.Services.StudentService;
-
+@Service
 public class StudentServiceIMPL  implements StudentService{
 @Autowired
 private StudentRepo studentrepo;
@@ -41,14 +42,22 @@ private CourseRepo courserepo;
 
 	@Override
 	public List<Course> courseByStudent_id(Integer Student_id) throws CourseNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		    List<Course> courses=courserepo.findAllByCourseId(Student_id);
+		    if(courses.size()==0)
+		    	throw new CourseNotFoundException("No course found for given id");
+		return courses;
 	}
 
 	@Override
 	public Course deletCourse(StudentCourseDto stCo) throws StudentException, CourseNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+	  Optional<Student>opt=studentrepo.findById(stCo.getStudentCode());
+	  if(opt.isEmpty()) throw new StudentException("Student not found  for given id");
+	  Student  student=opt.get();
+	    Course course=  courserepo.findById(stCo.getCourseId()).get();
+	    if(course==null) throw new CourseNotFoundException("no course found for given id");
+	     student.getCourses().add(course);
+	     return course;
+		
 	}
 
 }
