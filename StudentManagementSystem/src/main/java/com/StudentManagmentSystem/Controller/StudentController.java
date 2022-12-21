@@ -43,7 +43,7 @@ public class StudentController {
 		
 	}
 	
-	 @GetMapping("/update/{id}")
+	 @GetMapping("/courses/{id}")
 	public ResponseEntity<List<Course>> courseByStudent_id(@PathVariable("id") Integer Student_id){
 		 List<Course> list=null;
 		 try {

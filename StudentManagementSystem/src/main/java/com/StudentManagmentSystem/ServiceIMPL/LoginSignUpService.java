@@ -12,7 +12,7 @@ public class LoginSignUpService {
 	private LoginSignUpRepo signuprepo;
 	
 	public LoginSignupModule registration(LoginSignupModule admin) {
-		admin.setRole("Role_"+admin.getRole().toUpperCase());
+		admin.setRole("ROLE_"+admin.getRole().toUpperCase());
 		
 	LoginSignupModule adminSign=signuprepo.save(admin);
 		

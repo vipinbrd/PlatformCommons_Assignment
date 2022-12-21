@@ -3,6 +3,7 @@ package com.StudentManagmentSystem.ModelClasses;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.CascadeType;
@@ -38,7 +39,8 @@ public class Student {
 					@JoinColumn(name = "course_id", referencedColumnName = "courseId")
 
 	})
-	@JsonManagedReference
+//	@JsonManagedReference
+	@JsonIgnore
 	private List<Course> courses;
 
 	public Student() {

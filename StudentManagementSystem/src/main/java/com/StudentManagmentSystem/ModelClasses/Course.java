@@ -18,10 +18,10 @@ public class Course {
 	private String courseName;
 	private String description;
 	private String courseType;
-	private boolean duration;
+	private double duration;
 	private String courseTopic;
 	@ManyToMany(mappedBy = "courses", fetch = FetchType.LAZY)
-	@JsonBackReference
+//	@JsonBackReference
 
 	private List<Student> students;
 	
@@ -35,7 +35,7 @@ public class Course {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Course(Integer courseId, String courseName, String description, String courseType, boolean duration,
+	public Course(Integer courseId, String courseName, String description, String courseType, double duration,
 			String courseTopic, List<Student> students) {
 		super();
 		this.courseId = courseId;
@@ -79,11 +79,11 @@ public class Course {
 		this.courseType = courseType;
 	}
 
-	public boolean isDuration() {
+	public double isDuration() {
 		return duration;
 	}
 
-	public void setDuration(boolean duration) {
+	public void setDuration(double duration) {
 		this.duration = duration;
 	}
 
