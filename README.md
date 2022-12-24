@@ -2,8 +2,15 @@
 
 <!-- ============================================  TITLE ======================================================  -->
 
-# RestFul Webservice created for Student Management System.
+# Restful Webservices for Student Management System.
+
 * It is an individual project created to manage a student database and exposing API for various CRUD operation.
+
+
+<!-- ============================================  ER DIAGRAM ======================================================  -->
+## ER Diagram
+
+[![image](https://www.linkpicture.com/q/er-diagram_3.png)](https://www.linkpicture.com/view.php?img=LPic63a6b993e7e74382040673)
 
   
 <!-- ============================================  TECH STACK ======================================================  -->
